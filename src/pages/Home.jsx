@@ -3,8 +3,13 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial, MeshDistortMaterial } from '@react-three/drei';
 import * as random from 'maath/random/dist/maath-random.esm';
 import { TextureLoader } from 'three';
-import { Box, Container } from '@mui/material';
+import { Box } from '@mui/material';
+import { Container } from '@mui/system';
 import astronaut from '../assets/astronaut.png';
+import Welcome from '../components/Welcome';
+import TopMenu from '../components/TopMenu';
+import Projects from '../components/Projects';
+import LinksAndCopyright from '../components/LinksAndCopyright';
 
 function Stars() {
   const ref = useRef();
@@ -12,7 +17,7 @@ function Stars() {
     random.inSphere(new Float32Array(50000), { radius: 20.5 })
   );
   useFrame((state, delta) => {
-    ref.current.rotation.x -= delta / 40;
+    ref.current.rotation.x -= delta / 30;
     ref.current.rotation.y -= delta / 10000;
   });
   return (
@@ -22,7 +27,7 @@ function Stars() {
         <PointMaterial
           transparent
           color="#ffffff"
-          size={0.01}
+          size={0.02}
           sizeAttenuation
           depthWrite={false}
         />
@@ -38,45 +43,40 @@ function Blob({ size_param, distort_param, speed_param }) {
   const distort = distort_param;
   const speed = speed_param;
   return (
-    <mesh rotation={[Math.PI / 6, 0, 0.6]}>
+    <mesh rotation={[Math.PI / 8, 0.3, 0.9]}>
       <ambientLight intensity={1} />
-      <sphereGeometry args={[size, 100, 300]} />
+      <sphereGeometry args={[size, 100, 200]} />
       <MeshDistortMaterial map={texture} distort={distort} speed={speed} />
     </mesh>
   );
 }
 
 export default function Home() {
-  const [sizeParamOne, setSizeParamOne] = useState(1);
+  const [sizeParam, setSizeParam] = useState(1);
   const speedParamOne = 4;
   const distortParamOne = 0.3;
-
   useEffect(() => {
     const handleResize = () => {
-      const newSizeParamOne = window.innerWidth * 0.0005; // Adjust the factor according to your needs
-      if (newSizeParamOne > 1.1) {
-        setSizeParamOne(1.1);
-      } else if (newSizeParamOne < 0.7) {
-        setSizeParamOne(0.7);
+      const newSizeParamOne = window.innerWidth * 0.0005; // Adjust the factor according to your needsPKT
+      if (newSizeParamOne > 1.0) {
+        setSizeParam(1.0);
+      } else if (newSizeParamOne < 0.5) {
+        setSizeParam(0.5);
       } else {
-        setSizeParamOne(newSizeParamOne);
+        setSizeParam(newSizeParamOne);
       }
     };
 
-    // Initial resize
     handleResize();
-
-    // Event listener for window resize
     window.addEventListener('resize', handleResize);
-
-    // Clean up the event listener
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   return (
-    <Container>
+    <>
+      <TopMenu />
       <Canvas
         camera={{ position: [0, 2, 0] }}
         style={{
@@ -89,52 +89,65 @@ export default function Home() {
       >
         <Stars />
       </Canvas>
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center" // Add this line to vertically center the content
+      <Container
         sx={{
-          zIndex: 1,
-          position: 'absolute', // Change position to 'absolute' for better centering
-          top: '50%', // Center vertically
-          left: '50%', // Center horizontally
-          transform: 'translate(-50%, -50%)', // Adjust transform to center accurately
-          height: `${sizeParamOne * 50}%`,
-          width: `${sizeParamOne + 70}%`,
-          minWidth: '22vh',
-          minHeight: '22vh',
+          position: 'sticky',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column',
+          marginTop: 1,
         }}
       >
-        <Canvas camera={{ position: [0, 2, 0] }}>
-          <Blob
-            size_param={sizeParamOne}
-            speed_param={speedParamOne}
-            distort_param={distortParamOne}
-          />
-        </Canvas>
-      </Box>
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        style={{
-          zIndex: 2,
-          position: 'absolute', // Change position to 'absolute' for better centering
-          top: '50%', // Center vertically
-          left: '50%', // Center horizontally
-          transform: 'translate(-50%, -50%)', // Adjust transform to center accurately
-        }}
-      >
-        <img
-          alt="astronaut"
-          src={astronaut}
-          className="bounce-animation"
-          style={{
-            height: 'auto',
-            width: `${sizeParamOne * 45 - 10}vh`,
+        <Box
+          sx={{
+            zIndex: 10,
+            position: 'relative',
+            margin: 'auto',
+            width: '48vw',
+            minWidth: '20vw',
+            height: '48vh',
+            minHeight: '20vh',
+            marginBottom: 7,
+            top: -10,
           }}
-        />
-      </Box>
-    </Container>
+        >
+          <Canvas camera={{ fov: 35, zoom: 1.2, near: 1, far: 1000 }}>
+            <Blob
+              size_param={sizeParam}
+              speed_param={speedParamOne}
+              distort_param={distortParamOne}
+            />
+          </Canvas>
+          <Box
+            className="astroanut-box"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            style={{
+              zIndex: 11,
+              position: 'relative',
+              padding: '0.5em',
+              top: '-50%',
+            }}
+          >
+            <img
+              alt="astronaut"
+              src={astronaut}
+              className="bounce-animation"
+              style={{
+                position: 'absolute',
+                width: '30%',
+                height: 'auto',
+                minWidth: '130px',
+              }}
+            />
+          </Box>
+        </Box>
+        <Welcome />
+        <Projects />
+        <LinksAndCopyright />
+      </Container>
+    </>
   );
 }
