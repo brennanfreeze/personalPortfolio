@@ -1,70 +1,72 @@
-import { Box, Button, Container, Typography } from '@mui/material';
+import { Box, Button, Divider, Stack, Typography } from '@mui/material';
+import Projects from './Projects';
+import LinksAndCopyRight from './LinksAndCopyright';
 
 function Welcome() {
-  const fontStyles = `
-  @import url('https://fonts.googleapis.com/css2?family=Alexandria&family=Montserrat:wght@500&family=Outfit:wght@100&display=swap');
-`;
   return (
-    <Container
+    <Stack
+      zIndex={2}
       sx={{
-        display: 'flex',
-        position: 'relative',
         justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
         textAlign: 'center',
-        top: -125,
-        flexDirection: 'column',
-        width: '70%',
-        margin: 'auto',
+        top: 0,
       }}
+      spacing={6}
     >
-      <style>{fontStyles}</style>
       <Typography
-        variant="h1"
+        variant="h2"
+        component="h1"
+        p={2}
         sx={{
-          fontFamily: 'Alexandria, san-serif',
-          backgroundImage: 'linear-gradient(150deg, #4b70dd 25%, #ce40ad 70%)',
+          fontFamily: 'Lato, sans-serif',
+          backgroundColor: 'primary.main',
+          background:
+            '-webkit-linear-gradient(220deg, #ce40ad 10%, #4b70dd 80%)',
           WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          fontSize: '2.5em',
+          color: 'transparent',
           fontWeight: 'bold',
         }}
       >
         Hi, I'm Brennan.
       </Typography>
       <Typography
-        position="relative"
-        variant="h6"
+        variant="h5"
         color="white"
         sx={{
-          fontFamily: 'Montserrat, san-serif',
+          fontFamily: 'Lato, sans-serif',
+          width: { xs: '85%', sm: '40vh', md: '61vh', lg: '70vh' },
         }}
       >
-        I like solving difficult problems in full stack development, open source
-        projects, and quantum computing.
+        I am a computer science student emphasizing in full stack development, 
+        open source software, and quantum computing.
       </Typography>
       <Box
-        component="div"
-        display="flex"
-        justifyContent="center"
-        flexDirection="row"
-        marginTop="5vh"
         sx={{
-          gap: '2vw',
-          width: '100%',
+          display: 'flex',
+          flexDirection: { xs: 'column', sm: 'row' },
           justifyContent: 'center',
-          marginTop: 5,
+          marginTop: { xs: 2, sm: 5 },
+          gap: '2vh',
         }}
       >
         <Button
           variant="outlined"
           sx={{
-            width: '30vh',
+            p: 1,
+            width: { xs: '35vh', sm: '25vh' },
             height: 'auto',
             color: 'white',
+            fontWeight: 'bold',
+            fontFamily: 'Lato, sans-serif',
             borderRadius: 8,
             backgroundColor: '#08050f',
             border: '2px solid white',
+            transition:
+              'transform 0.2s ease-in-out, background-image 0.2s ease-in-out',
             '&:hover': {
+              transform: 'scale(1.03)',
               backgroundColor: 'white',
               border: '2px solid black',
               color: 'black',
@@ -73,9 +75,10 @@ function Welcome() {
         >
           <Typography
             sx={{
+              p: 1,
+              fontFamily: 'Lato, sans-serif',
+              height: 'auto',
               fontWeight: 'bold',
-              fontFamily: 'Montserrat, sans-serif',
-              fontSize: '90%',
             }}
           >
             Resume
@@ -84,30 +87,40 @@ function Welcome() {
         <Button
           variant="contained"
           sx={{
-            width: '30vh',
+            p: 1,
+            width: { xs: '35vh', sm: '25vh' },
+            fontFamily: 'Lato, sans-serif',
+            fontSize: '100%',
             height: 'auto',
             color: 'white',
-            backgroundColor: '#4b70dd',
+            backgroundColor: '#4b70ddff',
             borderRadius: 8,
+            transition:
+              'transform 0.2s ease-in-out, background-image 0.2s ease-in-out',
             '&:hover': {
+              transform: 'scale(1.03)',
               backgroundColor: 'white',
               color: 'black',
             },
           }}
         >
           <Typography
+            variant="h4"
             sx={{
               p: 1,
+              fontFamily: 'Lato, sans-serif',
+              fontSize: '100%',
+              height: 'auto',
               fontWeight: 'bold',
-              fontFamily: 'Montserrat, sans-serif',
-              fontSize: '90%',
             }}
           >
             Blog
           </Typography>
         </Button>
       </Box>
-    </Container>
+      <Projects />
+      <LinksAndCopyRight />
+    </Stack>
   );
 }
 

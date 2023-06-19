@@ -3,13 +3,10 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial, MeshDistortMaterial } from '@react-three/drei';
 import * as random from 'maath/random/dist/maath-random.esm';
 import { TextureLoader } from 'three';
-import { Box } from '@mui/material';
-import { Container } from '@mui/system';
+import { Box, CircularProgress, Stack, Typography } from '@mui/material';
 import astronaut from '../assets/astronaut.png';
 import Welcome from '../components/Welcome';
 import TopMenu from '../components/TopMenu';
-import Projects from '../components/Projects';
-import LinksAndCopyright from '../components/LinksAndCopyright';
 
 function Stars() {
   const ref = useRef();
@@ -43,7 +40,7 @@ function Blob({ size_param, distort_param, speed_param }) {
   const distort = distort_param;
   const speed = speed_param;
   return (
-    <mesh rotation={[Math.PI / 8, 0.3, 0.9]}>
+    <mesh rotation={[Math.PI - 0.9, 1, 0.9]}>
       <ambientLight intensity={1} />
       <sphereGeometry args={[size, 100, 200]} />
       <MeshDistortMaterial map={texture} distort={distort} speed={speed} />
@@ -51,103 +48,115 @@ function Blob({ size_param, distort_param, speed_param }) {
   );
 }
 
+function LoadingState() {
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+        color: 'white',
+        zIndex: 9999,
+        backgroundColor: '#08050f',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+      }}
+    >
+      <CircularProgress
+        sx={{
+          color: 'white',
+          width: '100vh',
+          height: '100vh',
+          padding: '10vh',
+        }}
+      />
+      <Typography
+        variant="h3"
+        sx={{
+          p: 1,
+          fontFamily: 'Lato, sans-serif',
+          height: 'auto',
+          textAlign: 'center',
+        }}
+      >
+        Loading, please wait...
+      </Typography>
+    </Box>
+  );
+}
+
 export default function Home() {
-  const [sizeParam, setSizeParam] = useState(1);
+  const sizeParam = 1;
   const speedParamOne = 4;
   const distortParamOne = 0.3;
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    const handleResize = () => {
-      const newSizeParamOne = window.innerWidth * 0.0005; // Adjust the factor according to your needsPKT
-      if (newSizeParamOne > 1.0) {
-        setSizeParam(1.0);
-      } else if (newSizeParamOne < 0.5) {
-        setSizeParam(0.5);
-      } else {
-        setSizeParam(newSizeParamOne);
-      }
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+    setIsLoading(true);
   }, []);
-
   return (
     <>
-      <TopMenu />
-      <Canvas
-        camera={{ position: [0, 2, 0] }}
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-        }}
-      >
-        <Stars />
-      </Canvas>
-      <Container
-        sx={{
-          position: 'sticky',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'column',
-          marginTop: 1,
-        }}
-      >
-        <Box
-          sx={{
-            zIndex: 10,
-            position: 'relative',
-            margin: 'auto',
-            width: '48vw',
-            minWidth: '20vw',
-            height: '48vh',
-            minHeight: '20vh',
-            marginBottom: 7,
-            top: -10,
+      {isLoading ? <LoadingState /> : null}
+
+      <>
+        <Canvas
+          camera={{ position: [0, 2, 0] }}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
           }}
         >
-          <Canvas camera={{ fov: 35, zoom: 1.2, near: 1, far: 1000 }}>
-            <Blob
-              size_param={sizeParam}
-              speed_param={speedParamOne}
-              distort_param={distortParamOne}
-            />
-          </Canvas>
+          <Stars />
+        </Canvas>
+        <TopMenu />
+        <Stack
+          spacing={{ xs: 2, sm: 3, md: 4 }}
+          alignItems="center"
+          justifyContent="center"
+        >
           <Box
-            className="astroanut-box"
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            style={{
-              zIndex: 11,
+            width={{ xs: '200px', sm: '220px', md: '240px', lg: '260px' }}
+            height={{ xs: '200px', sm: '220px', md: '240px', lg: '260px' }}
+            sx={{
               position: 'relative',
-              padding: '0.5em',
-              top: '-50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}
           >
-            <img
-              alt="astronaut"
-              src={astronaut}
+            <Box
               className="bounce-animation"
               style={{
                 position: 'absolute',
-                width: '30%',
-                height: 'auto',
-                minWidth: '130px',
+                transform: 'translate(-50%, -50%)',
+                zIndex: 5,
+                width: '55%',
+                height: '100%',
+                background: `url(${astronaut})`,
+                backgroundSize: 'cover',
+                backgroundPosition: '50% 50%',
+                imageRendering: '-webkit-optimize-contrast',
               }}
             />
+            <Canvas camera={{ zoom: 3, near: 3, far: 100 }}>
+              <Blob
+                size_param={sizeParam}
+                speed_param={speedParamOne}
+                distort_param={distortParamOne}
+              />
+            </Canvas>
           </Box>
-        </Box>
-        <Welcome />
-        <Projects />
-        <LinksAndCopyright />
-      </Container>
+          <Welcome />
+        </Stack>
+      </>
     </>
   );
 }

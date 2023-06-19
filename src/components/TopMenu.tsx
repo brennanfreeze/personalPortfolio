@@ -1,11 +1,15 @@
-import { IconButton, Menu, MenuItem, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  IconButton,
+  Menu,
+  MenuItem,
+  Typography,
+} from '@mui/material';
 import { useState } from 'react';
-import { Container } from '@mui/system';
+import { Stack } from '@mui/system';
 
 function TopMenu() {
-  const fontStyles = `
-  @import url('https://fonts.googleapis.com/css2?family=Alexandria&family=Montserrat:wght@500&family=Outfit:wght@100&display=swap');
-`;
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -14,56 +18,88 @@ function TopMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const [isPressed, setIsPressed] = useState(false);
 
+  const handleButtonClick = () => {
+    setIsPressed(true);
+    setTimeout(() => {
+      setIsPressed(false);
+    }, 1500);
+  };
   return (
-    <Container
+    <Stack
+      p={2}
+      direction="row"
+      spacing={{ xs: '50%', sm: '70%', md: '75vh', lg: '80vh' }}
+      justifyContent="space-between"
+      position="fixed"
+      zIndex={1000}
       sx={{
-        position: 'fixed',
-        zIndex: 999,
-        width: '100vw',
-        height: '10vh',
-        right: 0,
         left: 0,
-        top: 30,
-        margin: 'auto',
+        right: 0,
+        marginLeft: 'auto',
+        marginRight: 'auto',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center',
       }}
     >
       <IconButton
+        size="small"
         sx={{
-          position: 'absolute',
-          marginRight: 'max(100px, calc(50% + 10vw))',
-          width: 60,
-          height: 60,
-          backgroundColor: 'white',
-          borderRadius: '100%',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          color: '#08050f',
-          '@media (max-width: 500px)': {
-            marginRight: 'max(100px, calc(50%))',
+          width: '80px',
+          height: '80px',
+          p: 0,
+          position: 'relative',
+          color: 'white',
+          '&::before': {
+            content: "''",
+            position: 'absolute',
+            inset: 0,
+            borderRadius: '50px',
+            padding: '2px',
+            background: 'linear-gradient(220deg, #ce40ad 10%, #4b70dd 80%)',
+            WebkitMask:
+              'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+            WebkitMaskComposite: 'xor',
+            maskComposite: 'exclude',
           },
           transition:
-            'transform 0.2s ease-in-out, background-image 0.2s ease-in-out',
+            'transform 0.2s ease-in-out, background-color 0.2s ease-in-out',
           '&:hover': {
-            transform: 'scale(1.1)',
-            backgroundColor: 'white',
+            transform: 'scale(1.03)',
           },
+          display: 'flex', // Added display: flex
+          alignItems: 'center', // Added alignItems: center
+          justifyContent: 'center', // Added justifyContent: center
         }}
+        onClick={handleButtonClick}
       >
-        <Typography
+        <Box
           sx={{
-            fontSize: 35,
-            fontStyle: 'Montserrat, sans-serfif',
-            textAlign: 'center',
-            fontWeight: 'semi-bold',
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
-          BF
-        </Typography>
+          <Typography
+            sx={{
+              fontSize: 32,
+              width: '100%',
+              height: '100%',
+              fontFamily: 'Montserrat, sans-serif',
+              textAlign: 'center',
+              backgroundColor: '#08050f',
+              borderRadius: '50px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            {isPressed ? 'Hi' : 'BF'}
+          </Typography>
+        </Box>
       </IconButton>
       <IconButton
         aria-controls={open ? 'basic-menu' : undefined}
@@ -75,39 +111,63 @@ function TopMenu() {
             ? 'hamburger hamburger--spring is-active'
             : 'hamburger hamburger--spring'
         }
+        size="small"
         sx={{
-          position: 'absolute',
-          marginLeft: 'max(100px, calc(50% + 10vw))',
-          width: 60,
-          height: 60,
-          backgroundColor: 'white',
-          borderRadius: '100%',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          '@media (max-width: 500px)': {
-            marginLeft: 'max(100px, calc(50%))',
+          width: '80px',
+          height: '80px',
+          p: 0,
+          position: 'relative',
+          color: 'white',
+          '&::before': {
+            content: "''",
+            position: 'absolute',
+            inset: 0,
+            borderRadius: '50px',
+            padding: '2px',
+            background: 'linear-gradient(220deg, #ce40ad 10%, #4b70dd 80%)',
+            WebkitMask:
+              'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+            WebkitMaskComposite: 'xor',
+            maskComposite: 'exclude',
           },
           transition:
             'transform 0.2s ease-in-out, background-color 0.2s ease-in-out',
           '&:hover': {
-            transform: 'scale(1.1)',
-            backgroundColor: 'white',
-            opacity: 1,
+            transform: 'scale(1.03)',
           },
+          display: 'flex', // Added display: flex
+          alignItems: 'center', // Added alignItems: center
+          justifyContent: 'center', // Added justifyContent: center
         }}
       >
-        <span
-          className="hamburger-box"
-          style={{
-            position: 'relative',
+        <Box
+          sx={{
+            width: '100%',
+            height: '100%',
             display: 'flex',
-            justifyContent: 'center',
             alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
-          <span className="hamburger-inner" />
-        </span>
+          <Box
+            className="hamburger-box"
+            borderRadius="50px"
+            sx={{
+              width: '100%',
+              height: '100%',
+              fontSize: 32,
+              fontFamily: 'Montserrat, sans-serif',
+              textAlign: 'center',
+              backgroundColor: '#08050f',
+              borderRadius: '50px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <Box className="hamburger-inner" sx={{position: 'relative', transform: 'translate(1%, -250%)',}} />
+          </Box>
+        </Box>
       </IconButton>
       <Menu
         disableScrollLock
@@ -123,7 +183,7 @@ function TopMenu() {
         <MenuItem onClick={handleClose}>About</MenuItem>
         <MenuItem onClick={handleClose}>Blog</MenuItem>
       </Menu>
-    </Container>
+    </Stack>
   );
 }
 
