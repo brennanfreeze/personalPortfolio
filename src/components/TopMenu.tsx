@@ -1,4 +1,3 @@
-/* eslint-disable react/function-component-definition */
 import { Box, IconButton, MenuItem, Popover, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { Stack } from '@mui/system';
@@ -62,9 +61,9 @@ const TopMenu: React.FC = () => {
           '&:hover': {
             transform: 'scale(1.03)',
           },
-          display: 'flex', // Added display: flex
-          alignItems: 'center', // Added alignItems: center
-          justifyContent: 'center', // Added justifyContent: center
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
         onClick={handleButtonClick}
       >

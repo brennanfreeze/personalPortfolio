@@ -1,4 +1,3 @@
-/* eslint-disable react/function-component-definition */
 import { ArrowRight } from '@mui/icons-material';
 import { Button, IconButton, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -18,7 +17,7 @@ const ProjectCard: React.FC<CardProps> = ({ link, title, description }) => {
       to={link}
       target="_blank"
       sx={{
-        width: { xs: '300px', sm: '300px', md: '550px', lg: '550px' },
+        width: { xs: '300px', sm: '550px', md: '550px', lg: '550px' },
         p: 0,
         position: 'relative',
         '&::before': {

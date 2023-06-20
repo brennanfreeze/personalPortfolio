@@ -1,7 +1,8 @@
 import { IconButton, Stack } from '@mui/material';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-function LinksAndCopyRight() {
+const LinksAndCopyRight: React.FC = () => {
   return (
     <Stack
       zIndex={2}
@@ -83,6 +84,6 @@ function LinksAndCopyRight() {
       </IconButton>
     </Stack>
   );
-}
+};
 
 export default LinksAndCopyRight;

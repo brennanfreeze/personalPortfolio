@@ -40,7 +40,7 @@ const Blob = ({ size_param, distort_param, speed_param }) => {
   const distort = distort_param;
   const speed = speed_param;
   return (
-    <mesh rotation={[Math.PI - 0.9, 0.3, 1.2]}>
+    <mesh rotation={[Math.PI - 0.1, 0.3, 1.2]}>
       <ambientLight intensity={1} />
       <sphereGeometry args={[size, 100, 200]} />
       <MeshDistortMaterial map={texture} distort={distort} speed={speed} />

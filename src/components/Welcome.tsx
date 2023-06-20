@@ -101,7 +101,6 @@ const Welcome: React.FC = () => {
             Resume
           </Typography>
         </Button>
-
         <Popover
           open={isPopoverOpen}
           onClose={handlePopoverClose}
@@ -123,21 +122,38 @@ const Welcome: React.FC = () => {
           PaperProps={{
             sx: {
               backgroundColor: 'transparent',
+              overflow: 'auto',
+              '&::-webkit-scrollbar': {
+                width: '0.8em',
+                background: 'transparent',
+              },
+              '&::-webkit-scrollbar-thumb': {
+                background: 'transparent',
+              },
             },
           }}
         >
           <Paper
             sx={{
-              width: 700,
-              height: 700,
               p: 2,
-              backgroundColor: 'black',
-              border: 'white solid 2px',
+              backgroundColor: '#08050f',
               borderRadius: '25px',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
               alignItems: 'center',
+              '&::before': {
+                content: "''",
+                position: 'absolute',
+                inset: 0,
+                borderRadius: '25px',
+                padding: '4px',
+                background: 'linear-gradient(220deg, #ce40ad 10%, #4b70dd 80%)',
+                WebkitMask:
+                  'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                WebkitMaskComposite: 'xor',
+                maskComposite: 'exclude',
+              },
             }}
           >
             <Resume />
