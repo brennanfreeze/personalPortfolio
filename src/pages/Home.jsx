@@ -8,7 +8,7 @@ import astronaut from '../assets/astronaut.png';
 import Welcome from '../components/Welcome';
 import TopMenu from '../components/TopMenu';
 
-function Stars() {
+const Stars = () => {
   const ref = useRef();
   const [sphere] = useState(() =>
     random.inSphere(new Float32Array(50000), { radius: 20.5 })
@@ -31,24 +31,24 @@ function Stars() {
       </Points>
     </group>
   );
-}
+};
 
 // eslint-disable-next-line react/prop-types
-function Blob({ size_param, distort_param, speed_param }) {
+const Blob = ({ size_param, distort_param, speed_param }) => {
   const texture = new TextureLoader().load('/circle_blob.svg');
   const size = size_param;
   const distort = distort_param;
   const speed = speed_param;
   return (
-    <mesh rotation={[Math.PI - 0.9, 1, 0.9]}>
+    <mesh rotation={[Math.PI - 0.9, 0.3, 1.2]}>
       <ambientLight intensity={1} />
       <sphereGeometry args={[size, 100, 200]} />
       <MeshDistortMaterial map={texture} distort={distort} speed={speed} />
     </mesh>
   );
-}
+};
 
-function LoadingState() {
+const LoadingState = () => {
   return (
     <Box
       sx={{
@@ -87,9 +87,9 @@ function LoadingState() {
       </Typography>
     </Box>
   );
-}
+};
 
-export default function Home() {
+const Home = () => {
   const sizeParam = 1;
   const speedParamOne = 4;
   const distortParamOne = 0.3;
@@ -112,6 +112,8 @@ export default function Home() {
             position: 'fixed',
             top: 0,
             left: 0,
+            width: '100%',
+            height: '100%',
           }}
         >
           <Stars />
@@ -159,4 +161,6 @@ export default function Home() {
       </>
     </>
   );
-}
+};
+
+export default Home;

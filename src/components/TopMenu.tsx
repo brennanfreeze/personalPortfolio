@@ -1,15 +1,9 @@
-import {
-  Box,
-  Button,
-  IconButton,
-  Menu,
-  MenuItem,
-  Typography,
-} from '@mui/material';
-import { useState } from 'react';
+/* eslint-disable react/function-component-definition */
+import { Box, IconButton, MenuItem, Popover, Typography } from '@mui/material';
+import React, { useState } from 'react';
 import { Stack } from '@mui/system';
 
-function TopMenu() {
+const TopMenu: React.FC = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -30,7 +24,7 @@ function TopMenu() {
     <Stack
       p={2}
       direction="row"
-      spacing={{ xs: '50%', sm: '70%', md: '75vh', lg: '80vh' }}
+      spacing={{ xs: '60%', sm: '400px', md: '650px', lg: '700px' }}
       justifyContent="space-between"
       position="fixed"
       zIndex={1000}
@@ -46,8 +40,8 @@ function TopMenu() {
       <IconButton
         size="small"
         sx={{
-          width: '80px',
-          height: '80px',
+          width: { xs: '70px', sm: '70px', md: '80px', lg: '80px' },
+          height: { xs: '70px', sm: '70px', md: '80px', lg: '80px' },
           p: 0,
           position: 'relative',
           color: 'white',
@@ -102,9 +96,7 @@ function TopMenu() {
         </Box>
       </IconButton>
       <IconButton
-        aria-controls={open ? 'basic-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
+        aria-describedby={open ? 'basic-popover' : undefined}
         onClick={handleClick}
         className={
           open
@@ -113,8 +105,8 @@ function TopMenu() {
         }
         size="small"
         sx={{
-          width: '80px',
-          height: '80px',
+          width: { xs: '70px', sm: '70px', md: '80px', lg: '80px' },
+          height: { xs: '70px', sm: '70px', md: '80px', lg: '80px' },
           p: 0,
           position: 'relative',
           color: 'white',
@@ -135,9 +127,9 @@ function TopMenu() {
           '&:hover': {
             transform: 'scale(1.03)',
           },
-          display: 'flex', // Added display: flex
-          alignItems: 'center', // Added alignItems: center
-          justifyContent: 'center', // Added justifyContent: center
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
         <Box
@@ -165,26 +157,79 @@ function TopMenu() {
               justifyContent: 'center',
             }}
           >
-            <Box className="hamburger-inner" sx={{position: 'relative', transform: 'translate(1%, -250%)',}} />
+            <Box
+              className="hamburger-inner"
+              sx={{ position: 'relative', transform: 'translate(0%, -250%)' }}
+            />
           </Box>
         </Box>
       </IconButton>
-      <Menu
+      <Popover
         disableScrollLock
-        id="basic-menu"
-        anchorEl={anchorEl}
+        id="basic-popover"
         open={open}
         onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
+        anchorEl={anchorEl}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        PaperProps={{
+          sx: {
+            backgroundColor: 'transparent',
+            boxShadow: 'none',
+          },
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
         }}
       >
-        <MenuItem onClick={handleClose}>Home</MenuItem>
-        <MenuItem onClick={handleClose}>About</MenuItem>
-        <MenuItem onClick={handleClose}>Blog</MenuItem>
-      </Menu>
+        <Box
+          sx={{
+            p: 2,
+            width: { xs: '150px', sm: '200px', md: '200px', lg: '200px' },
+            backgroundColor: '#08050f',
+            border: 'solid white 2px',
+            borderRadius: '25px',
+            color: 'white',
+          }}
+        >
+          <MenuItem onClick={handleClose}>
+            <Typography
+              sx={{
+                fontFamily: 'Montserrat, sans-serif',
+                fontSize: 28,
+                fontWeight: 'bold',
+              }}
+            >
+              Home
+            </Typography>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            <Typography
+              sx={{ fontFamily: 'Montserrat, sans-serif', fontSize: 28 }}
+            >
+              Blog
+            </Typography>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            <Typography
+              sx={{ fontFamily: 'Montserrat, sans-serif', fontSize: 28 }}
+            >
+              <a
+                style={{ color: 'white', textDecoration: 'none' }}
+                href="mailto:freezebrennan1@gmail.com"
+                target="_top"
+              >
+                Contact
+              </a>
+            </Typography>
+          </MenuItem>
+        </Box>
+      </Popover>
     </Stack>
   );
-}
+};
 
 export default TopMenu;

@@ -1,8 +1,9 @@
-import { Box, Button, Divider, Stack, Typography } from '@mui/material';
+/* eslint-disable react/no-unescaped-entities */
+import { Box, Button, Stack, Typography } from '@mui/material';
 import Projects from './Projects';
 import LinksAndCopyRight from './LinksAndCopyright';
 
-function Welcome() {
+const Welcome = () => {
   return (
     <Stack
       zIndex={2}
@@ -36,10 +37,10 @@ function Welcome() {
         color="white"
         sx={{
           fontFamily: 'Lato, sans-serif',
-          width: { xs: '85%', sm: '40vh', md: '61vh', lg: '70vh' },
+          width: { xs: '250px', sm: '600px' },
         }}
       >
-        I am a computer science student emphasizing in full stack development, 
+        I am a computer science student emphasizing in full stack development,
         open source software, and quantum computing.
       </Typography>
       <Box
@@ -55,7 +56,7 @@ function Welcome() {
           variant="outlined"
           sx={{
             p: 1,
-            width: { xs: '35vh', sm: '25vh' },
+            width: { xs: '250px', sm: '275px' },
             height: 'auto',
             color: 'white',
             fontWeight: 'bold',
@@ -88,7 +89,7 @@ function Welcome() {
           variant="contained"
           sx={{
             p: 1,
-            width: { xs: '35vh', sm: '25vh' },
+            width: { xs: '250px', sm: '275px' },
             fontFamily: 'Lato, sans-serif',
             fontSize: '100%',
             height: 'auto',
@@ -122,6 +123,6 @@ function Welcome() {
       <LinksAndCopyRight />
     </Stack>
   );
-}
+};
 
 export default Welcome;

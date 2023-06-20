@@ -1,12 +1,12 @@
-import { Box, Container, IconButton, Stack } from '@mui/material';
+import { IconButton, Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 function LinksAndCopyRight() {
   return (
     <Stack
       zIndex={2}
-      width={{ xs: '300px', sm: '300px', md: '350px', lg: '350px' }}
-      height="75px"
+      width={{ xs: '275px', sm: '300px', md: '350px', lg: '350px' }}
+      height={{ xs: '60px', sm: '60px', md: '80px', lg: '80px' }}
       p={1}
       sx={{
         borderRadius: '50px',
@@ -31,7 +31,7 @@ function LinksAndCopyRight() {
         target="_blank"
         disableRipple
         sx={{
-          width: '100px',
+          width: { xs: '90px', sm: '100px', md: '120px', lg: '120px' },
           height: 'auto',
           filter: 'invert(1)',
           transition:
@@ -49,7 +49,7 @@ function LinksAndCopyRight() {
         target="_blank"
         disableRipple
         sx={{
-          width: '100px',
+          width: { xs: '90px', sm: '100px', md: '120px', lg: '120px' },
           height: 'auto',
           filter: 'invert(1)',
           transition:
@@ -62,9 +62,9 @@ function LinksAndCopyRight() {
         <img src="/Linkedin.svg" alt="Linkedin" width="100%" />
       </IconButton>
       <IconButton
-      disableRipple
+        disableRipple
         sx={{
-          width: '100px',
+          width: { xs: '90px', sm: '100px', md: '120px', lg: '120px' },
           height: 'auto',
           filter: 'invert(1)',
           transition:
@@ -77,7 +77,7 @@ function LinksAndCopyRight() {
         component="a"
         href="freezebrennan@gmail.com"
       >
-        <a href="mailto:freezebrennan@gmail.com" target="_top">
+        <a href="mailto:freezebrennan1@gmail.com" target="_top">
           <img src="/Email.svg" alt="Email" width="100%" />
         </a>
       </IconButton>
