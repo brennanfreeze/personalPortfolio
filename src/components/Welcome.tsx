@@ -1,9 +1,25 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Box, Button, Stack, Typography } from '@mui/material';
+import { Box, Button, Stack, Typography, Popover, Paper } from '@mui/material';
+import React, { useState } from 'react';
 import Projects from './Projects';
 import LinksAndCopyRight from './LinksAndCopyright';
+import Resume from './Resume';
 
-const Welcome = () => {
+const Welcome: React.FC = () => {
+  const [isPopoverOpen, setPopoverOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+
+  const handlePopoverOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setPopoverOpen(true);
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handlePopoverClose = () => {
+    setPopoverOpen(false);
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
   return (
     <Stack
       zIndex={2}
@@ -54,6 +70,7 @@ const Welcome = () => {
       >
         <Button
           variant="outlined"
+          onClick={handlePopoverOpen}
           sx={{
             p: 1,
             width: { xs: '250px', sm: '275px' },
@@ -78,13 +95,54 @@ const Welcome = () => {
             sx={{
               p: 1,
               fontFamily: 'Lato, sans-serif',
-              height: 'auto',
               fontWeight: 'bold',
             }}
           >
             Resume
           </Typography>
         </Button>
+
+        <Popover
+          open={isPopoverOpen}
+          onClose={handlePopoverClose}
+          anchorReference="none"
+          anchorPosition={{
+            top: 100,
+            left: 100,
+          }}
+          transformOrigin={{
+            vertical: 'center',
+            horizontal: 'center',
+          }}
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'rgba(0, 0, 0, 0.9)',
+          }}
+          PaperProps={{
+            sx: {
+              backgroundColor: 'transparent',
+            },
+          }}
+        >
+          <Paper
+            sx={{
+              width: 700,
+              height: 700,
+              p: 2,
+              backgroundColor: 'black',
+              border: 'white solid 2px',
+              borderRadius: '25px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <Resume />
+          </Paper>
+        </Popover>
         <Button
           variant="contained"
           sx={{
@@ -111,7 +169,6 @@ const Welcome = () => {
               p: 1,
               fontFamily: 'Lato, sans-serif',
               fontSize: '100%',
-              height: 'auto',
               fontWeight: 'bold',
             }}
           >

@@ -1,7 +1,11 @@
 body {
   background: #08050f;
+  
 }
 
+body::-webkit-scrollbar{
+  display: none;
+}
 @keyframes bounce {
   0%, 100% {
     transform: translateY(0);

@@ -18,7 +18,7 @@ const ProjectCard: React.FC<CardProps> = ({ link, title, description }) => {
       to={link}
       target="_blank"
       sx={{
-        width: { xs: '300px', sm: '400px', md: '600px', lg: '600px' },
+        width: { xs: '300px', sm: '300px', md: '550px', lg: '550px' },
         p: 0,
         position: 'relative',
         '&::before': {
@@ -41,7 +41,7 @@ const ProjectCard: React.FC<CardProps> = ({ link, title, description }) => {
       }}
     >
       <Box
-        width={{ xs: '300px', sm: '400px', md: '600px', lg: '600px' }}
+        width={{ xs: '300px', sm: '300px', md: '550px', lg: '550px' }}
         sx={{
           backgroundColor: '#08050f',
           borderRadius: '25px',
@@ -76,7 +76,7 @@ const ProjectCard: React.FC<CardProps> = ({ link, title, description }) => {
           sx={{
             p: 1,
             marginBottom: 5,
-            width: { xs: '250px', sm: '275px', md: '450px', lg: '450px' },
+            width: { xs: '250px', sm: '275px' },
             height: 'auto',
             color: 'white',
             fontWeight: 'bold',
@@ -84,6 +84,7 @@ const ProjectCard: React.FC<CardProps> = ({ link, title, description }) => {
             borderRadius: 8,
             backgroundColor: '#08050f',
             border: '2px solid white',
+            fontSize: '100%',
             transition:
               'transform 0.2s ease-in-out, background-color 0.2s ease-in-out',
             '&:hover': {
@@ -97,7 +98,7 @@ const ProjectCard: React.FC<CardProps> = ({ link, title, description }) => {
           <Typography
             sx={{
               p: 1,
-              fontSize: { xs: '15px', sm: '15px', md: '20px', lg: '20px' },
+              fontSize: '60%',
               fontFamily: 'Lato, san-serif',
               width: { xs: '150px', sm: '150px', md: '400px', lg: '400px' },
               height: 'auto',
