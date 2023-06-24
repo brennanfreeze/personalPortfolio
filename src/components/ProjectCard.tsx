@@ -1,5 +1,5 @@
 import { ArrowRight } from '@mui/icons-material';
-import { Button, IconButton, Typography } from '@mui/material';
+import { Button, IconButton, Stack, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { Box } from '@mui/system';
 import React from 'react';
@@ -17,7 +17,7 @@ const ProjectCard: React.FC<CardProps> = ({ link, title, description }) => {
       to={link}
       target="_blank"
       sx={{
-        width: { xs: '300px', sm: '550px', md: '550px', lg: '550px' },
+        width: { xs: '300px', sm: '400px', md: '400px', lg: '550px' },
         p: 0,
         position: 'relative',
         '&::before': {
@@ -39,7 +39,7 @@ const ProjectCard: React.FC<CardProps> = ({ link, title, description }) => {
         },
       }}
     >
-      <Box
+      <Stack
         width={{ xs: '300px', sm: '550px', md: '550px', lg: '550px' }}
         sx={{
           backgroundColor: '#08050f',
@@ -51,9 +51,9 @@ const ProjectCard: React.FC<CardProps> = ({ link, title, description }) => {
         }}
       >
         <Typography
-          p={1}
+          variant="h2"
+          component="h1"
           margin={2}
-          variant="h1"
           textAlign="center"
           sx={{
             fontSize: { xs: '50px', sm: '50px', md: '60px', lg: '60px' },
@@ -64,8 +64,11 @@ const ProjectCard: React.FC<CardProps> = ({ link, title, description }) => {
         <Typography
           p={1}
           margin={2}
+          variant="h5"
+          color="white"
           sx={{
-            fontSize: { xs: '20px', sm: '20px', md: '30px', lg: '30px' },
+            fontWeight: 500,
+            fontFamily: 'Lato, sans-serif',
           }}
         >
           {description}
@@ -111,7 +114,7 @@ const ProjectCard: React.FC<CardProps> = ({ link, title, description }) => {
             <ArrowRight />
           </Typography>
         </Button>
-      </Box>
+      </Stack>
     </IconButton>
   );
 };

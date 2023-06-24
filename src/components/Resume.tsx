@@ -1,4 +1,4 @@
-import { Box, Divider, Stack, Typography } from '@mui/material';
+import { Divider, Stack, Typography } from '@mui/material';
 import portrait from '../assets/portrait.jpg';
 import c from '../assets/languages/c.svg';
 import csharp from '../assets/languages/csharp.svg';
@@ -32,7 +32,7 @@ const Resume: React.FC = () => {
         scrollbarColor: 'transparent transparent' /* Hide the scrollbar */,
       }}
     >
-      <Box
+      <Stack
         sx={{
           width: { xs: '150px', sm: '150px', md: '250px', lg: '250px' },
           height: { xs: '150px', sm: '150px', md: '250px', lg: '250px' },
@@ -62,7 +62,7 @@ const Resume: React.FC = () => {
           justifyContent: 'center',
         }}
       >
-        <Box
+        <Stack
           sx={{
             width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
             height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
@@ -71,7 +71,7 @@ const Resume: React.FC = () => {
             border: '#08050f solid 4px',
           }}
         />
-        <Box
+        <Stack
           sx={{
             width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
             height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
@@ -80,7 +80,7 @@ const Resume: React.FC = () => {
             border: '#08050f solid 4px',
           }}
         />
-        <Box
+        <Stack
           sx={{
             width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
             height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
@@ -89,7 +89,7 @@ const Resume: React.FC = () => {
             border: '#08050f solid 4px',
           }}
         />
-        <Box
+        <Stack
           sx={{
             width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
             height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
@@ -98,7 +98,7 @@ const Resume: React.FC = () => {
             border: '#08050f solid 4px',
           }}
         />
-        <Box
+        <Stack
           sx={{
             width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
             height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
@@ -107,7 +107,7 @@ const Resume: React.FC = () => {
             border: '#08050f solid 4px',
           }}
         />
-        <Box
+        <Stack
           sx={{
             width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
             height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
@@ -116,7 +116,7 @@ const Resume: React.FC = () => {
             border: '#08050f solid 4px',
           }}
         />
-        <Box
+        <Stack
           sx={{
             width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
             height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
@@ -145,7 +145,7 @@ const Resume: React.FC = () => {
           justifyContent: 'center',
         }}
       >
-        <Box
+        <Stack
           sx={{
             width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
             height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
@@ -154,7 +154,7 @@ const Resume: React.FC = () => {
             border: '#08050f solid 4px',
           }}
         />
-        <Box
+        <Stack
           sx={{
             width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
             height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
@@ -163,7 +163,7 @@ const Resume: React.FC = () => {
             border: '#08050f solid 4px',
           }}
         />
-        <Box
+        <Stack
           sx={{
             width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
             height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
@@ -172,7 +172,7 @@ const Resume: React.FC = () => {
             border: '#08050f solid 4px',
           }}
         />
-        <Box
+        <Stack
           sx={{
             width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
             height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
@@ -181,7 +181,7 @@ const Resume: React.FC = () => {
             border: '#08050f solid 4px',
           }}
         />
-        <Box
+        <Stack
           sx={{
             width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
             height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
@@ -190,7 +190,7 @@ const Resume: React.FC = () => {
             border: '#08050f solid 4px',
           }}
         />
-        <Box
+        <Stack
           sx={{
             width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
             height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },

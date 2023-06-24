@@ -61,6 +61,7 @@ const Welcome: React.FC = () => {
         variant="h5"
         color="white"
         sx={{
+          fontWeight: 500,
           fontFamily: 'Lato, sans-serif',
           width: { xs: '250px', sm: '600px' },
         }}
@@ -68,7 +69,7 @@ const Welcome: React.FC = () => {
         I am a computer science student emphasizing in full stack development,
         open source software, and quantum computing.
       </Typography>
-      <Box
+      <Stack
         sx={{
           display: 'flex',
           flexDirection: { xs: 'column', sm: 'row' },
@@ -198,7 +199,7 @@ const Welcome: React.FC = () => {
             Blog
           </Typography>
         </Button>
-      </Box>
+      </Stack>
       <Projects />
       <LinksAndCopyRight />
     </Stack>

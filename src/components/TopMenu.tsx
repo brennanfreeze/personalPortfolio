@@ -1,6 +1,12 @@
-import { Box, IconButton, MenuItem, Popover, Typography } from '@mui/material';
+import {
+  Box,
+  IconButton,
+  MenuItem,
+  Popover,
+  Typography,
+  Stack,
+} from '@mui/material';
 import React, { useState } from 'react';
-import { Stack } from '@mui/system';
 import { Link } from 'react-router-dom';
 
 const TopMenu: React.FC = () => {
@@ -68,7 +74,7 @@ const TopMenu: React.FC = () => {
           justifyContent: 'center',
         }}
       >
-        <Box
+        <Stack
           sx={{
             width: '100%',
             height: '100%',
@@ -93,7 +99,7 @@ const TopMenu: React.FC = () => {
           >
             {isPressed ? 'Hi' : 'BF'}
           </Typography>
-        </Box>
+        </Stack>
       </IconButton>
       <IconButton
         aria-describedby={open ? 'basic-popover' : undefined}
@@ -132,7 +138,7 @@ const TopMenu: React.FC = () => {
           justifyContent: 'center',
         }}
       >
-        <Box
+        <Stack
           sx={{
             width: '100%',
             height: '100%',
@@ -141,7 +147,7 @@ const TopMenu: React.FC = () => {
             justifyContent: 'center',
           }}
         >
-          <Box
+          <Stack
             className="hamburger-box"
             borderRadius="50px"
             sx={{
@@ -157,12 +163,12 @@ const TopMenu: React.FC = () => {
               justifyContent: 'center',
             }}
           >
-            <Box
+            <Stack
               className="hamburger-inner"
               sx={{ position: 'relative', transform: 'translate(0%, -250%)' }}
             />
-          </Box>
-        </Box>
+          </Stack>
+        </Stack>
       </IconButton>
       <Popover
         disableScrollLock
@@ -185,7 +191,7 @@ const TopMenu: React.FC = () => {
           horizontal: 'right',
         }}
       >
-        <Box
+        <Stack
           sx={{
             p: 2,
             width: { xs: '150px', sm: '200px', md: '200px', lg: '200px' },
@@ -226,7 +232,7 @@ const TopMenu: React.FC = () => {
               </a>
             </Typography>
           </MenuItem>
-        </Box>
+        </Stack>
       </Popover>
     </Stack>
   );
