@@ -1,25 +1,34 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Box, Button, Stack, Typography, Popover, Paper } from '@mui/material';
+import {
+  Box,
+  Button,
+  Stack,
+  Typography,
+  Popover,
+  Paper,
+  IconButton,
+} from '@mui/material';
 import React, { useState } from 'react';
+import { CloseRounded } from '@mui/icons-material';
 import Projects from './Projects';
 import LinksAndCopyRight from './LinksAndCopyright';
 import Resume from './Resume';
 
 const Welcome: React.FC = () => {
   const [isPopoverOpen, setPopoverOpen] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
-
   const handlePopoverOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
     setPopoverOpen(true);
     setAnchorEl(event.currentTarget);
+    // eslint-disable-next-line no-console
+    console.log(anchorEl);
   };
 
   const handlePopoverClose = () => {
     setPopoverOpen(false);
     setAnchorEl(null);
   };
-
-  const open = Boolean(anchorEl);
   return (
     <Stack
       zIndex={2}
@@ -98,17 +107,13 @@ const Welcome: React.FC = () => {
               fontWeight: 'bold',
             }}
           >
-            Resume
+            Skills
           </Typography>
         </Button>
         <Popover
           open={isPopoverOpen}
           onClose={handlePopoverClose}
           anchorReference="none"
-          anchorPosition={{
-            top: 100,
-            left: 100,
-          }}
           transformOrigin={{
             vertical: 'center',
             horizontal: 'center',
@@ -118,48 +123,50 @@ const Welcome: React.FC = () => {
             justifyContent: 'center',
             alignItems: 'center',
             backgroundColor: 'rgba(0, 0, 0, 0.9)',
-          }}
-          PaperProps={{
-            sx: {
-              backgroundColor: 'transparent',
-              overflow: 'auto',
-              '&::-webkit-scrollbar': {
-                width: '0.8em',
-                background: 'transparent',
-              },
-              '&::-webkit-scrollbar-thumb': {
-                background: 'transparent',
-              },
-            },
+            scrollbarColor: 'transparent transparent',
           }}
         >
           <Paper
             sx={{
-              p: 2,
+              p: 1,
               backgroundColor: '#08050f',
-              borderRadius: '25px',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
               alignItems: 'center',
-              '&::before': {
-                content: "''",
-                position: 'absolute',
-                inset: 0,
-                borderRadius: '25px',
-                padding: '4px',
-                background: 'linear-gradient(220deg, #ce40ad 10%, #4b70dd 80%)',
-                WebkitMask:
-                  'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                WebkitMaskComposite: 'xor',
-                maskComposite: 'exclude',
+              border: 'solid white 2px',
+              overflow: 'auto' /* Enable scrolling */,
+              '&::-webkit-scrollbar': {
+                background: 'transparent' /* Hide the scrollbar */,
               },
+              '&::-webkit-scrollbar-thumb': {
+                background: 'transparent' /* Hide the scrollbar thumb */,
+              },
+              scrollbarColor:
+                'transparent transparent' /* Hide the scrollbar */,
             }}
           >
+            <IconButton
+              onClick={handlePopoverClose}
+              sx={{
+                position: 'absolute',
+                color: 'white',
+                top: 10,
+                right: 10,
+              }}
+            >
+              <CloseRounded
+                sx={{
+                  width: { xs: '50px', sm: '50px', md: '75px', lg: '75px' },
+                  height: { xs: '50px', sm: '50px', md: '75px', lg: '75px' },
+                }}
+              />
+            </IconButton>
             <Resume />
           </Paper>
         </Popover>
         <Button
+          href="#/blog"
           variant="contained"
           sx={{
             p: 1,

@@ -40,7 +40,7 @@ const ProjectCard: React.FC<CardProps> = ({ link, title, description }) => {
       }}
     >
       <Box
-        width={{ xs: '300px', sm: '300px', md: '550px', lg: '550px' }}
+        width={{ xs: '300px', sm: '550px', md: '550px', lg: '550px' }}
         sx={{
           backgroundColor: '#08050f',
           borderRadius: '25px',

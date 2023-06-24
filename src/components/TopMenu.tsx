@@ -1,6 +1,7 @@
 import { Box, IconButton, MenuItem, Popover, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { Stack } from '@mui/system';
+import { Link } from 'react-router-dom';
 
 const TopMenu: React.FC = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -38,6 +39,7 @@ const TopMenu: React.FC = () => {
     >
       <IconButton
         size="small"
+        onClick={handleButtonClick}
         sx={{
           width: { xs: '70px', sm: '70px', md: '80px', lg: '80px' },
           height: { xs: '70px', sm: '70px', md: '80px', lg: '80px' },
@@ -65,7 +67,6 @@ const TopMenu: React.FC = () => {
           alignItems: 'center',
           justifyContent: 'center',
         }}
-        onClick={handleButtonClick}
       >
         <Box
           sx={{
@@ -194,7 +195,7 @@ const TopMenu: React.FC = () => {
             color: 'white',
           }}
         >
-          <MenuItem onClick={handleClose}>
+          <MenuItem component={Link} to="/" onClick={handleClose}>
             <Typography
               sx={{
                 fontFamily: 'Montserrat, sans-serif',
@@ -205,7 +206,7 @@ const TopMenu: React.FC = () => {
               Home
             </Typography>
           </MenuItem>
-          <MenuItem onClick={handleClose}>
+          <MenuItem component={Link} to="/blog" onClick={handleClose}>
             <Typography
               sx={{ fontFamily: 'Montserrat, sans-serif', fontSize: 28 }}
             >

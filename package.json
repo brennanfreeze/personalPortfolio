@@ -19,14 +19,16 @@
     "@mui/system": "^5.13.2",
     "@react-three/drei": "^9.70.4",
     "hamburgers": "^1.2.1",
+    "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^5.3.11"
   },
   "devDependencies": {
-    "@react-three/fiber": "^8.13.0",
+    "@react-three/fiber": "^8.13.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
+    "@types/lodash": "^4.14.195",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@types/three": "^0.152.1",
