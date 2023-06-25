@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { MeshDistortMaterial } from '@react-three/drei';
 import { TextureLoader } from 'three';
@@ -6,7 +6,6 @@ import { Stack, SxProps } from '@mui/material';
 import astronaut from '../assets/astronaut.png';
 import Welcome from '../components/Welcome';
 import BasicLayout from '../components/BasicLayout';
-import LoadingState from '../components/Loading';
 
 const Blob = () => {
   const texture = new TextureLoader().load('/circle_blob.svg');
