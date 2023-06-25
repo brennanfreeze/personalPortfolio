@@ -1,7 +1,6 @@
 import { ArrowRight } from '@mui/icons-material';
 import { Button, IconButton, Stack, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { Box } from '@mui/system';
 import React from 'react';
 
 interface CardProps {
