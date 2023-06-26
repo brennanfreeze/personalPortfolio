@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Grid, Stack, TextField, Typography } from '@mui/material';
 import React from 'react';
 import BasicLayout from '../components/BasicLayout';
@@ -26,7 +27,24 @@ const Blog: React.FC = () => {
         >
           Explore what I'm up to.
         </Typography>
+        <Typography
+          variant="h5"
+          color="white"
+          textAlign="center"
+          sx={{
+            fontWeight: 500,
+            width: { xs: '275px', sm: '500px', md: '600px', lg: '650px' },
+            height: '10%',
+            fontFamily: 'Lato, sans-serif',
+          }}
+        >
+          Here, I share practical knowledge and insights on programming
+          languages, frameworks, and best practices, and explore the
+          transformative potential of software engineering in real-world
+          applications.
+        </Typography>
         <TextField
+          autoComplete="off"
           sx={{
             backgroundColor: '#08050f',
             border: 'solid white 2px',
@@ -51,7 +69,7 @@ const Blog: React.FC = () => {
             '& input::placeholder': {
               color: 'white',
               opacity: 0.5,
-              fontFamily: 'Montserrat, sans-serif',
+              fontFamily: 'Lato, sans-serif',
               fontWeight: 'bold',
             },
           }}
@@ -70,11 +88,15 @@ const Blog: React.FC = () => {
           marginBottom={10}
         >
           <BlogCard
-            title="Test Test Test Test Test Test Test Test Test Test"
-            date="June 26, 2023"
-            tech="Python, C++ "
-            content="This is a test to show the blog posting system. This is done for the pure
-            sake to test it and it means nothing"
+            title="Creating This Blog"
+            date="June 25, 2023"
+            tech="Typescript, Firebase "
+            content="Welcome to my portfolio/blog! I always wanted to get really creative with a personal portfolio and figured a space themed one would help me go down that route. Using Typescript, Material UI, Three.js, React Three Fiber, and Firebase.
+
+            This was a really great learning experience for me to understand how a responsive layout for a web application works and how I can improve my design skills.
+
+            I plan to hopefully do a lot more for this site such as creating a mailing list for anyone wanting to get updates on what I am up to. 
+            "
           />
         </Grid>
       </Stack>

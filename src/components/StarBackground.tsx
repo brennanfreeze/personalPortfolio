@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Stars, OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 
@@ -23,7 +23,7 @@ const StarBackground: React.FC = () => {
         enableRotate={false}
         target={[4, 4, 1]}
       />
-      <Stars radius={100} depth={10} count={10000} factor={1} />
+      <Stars radius={100} depth={10} count={10000} factor={0} />
     </Canvas>
   );
 };

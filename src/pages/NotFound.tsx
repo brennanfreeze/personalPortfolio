@@ -1,27 +1,29 @@
-import { Stack, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Button, Stack, Typography } from '@mui/material';
+import React from 'react';
 import TopMenu from '../components/TopMenu';
+import BasicLayout from '../components/BasicLayout';
 
-const NotFound: React.FC = () => {
+export const NotFound: React.FC = () => {
   return (
     <>
-      <TopMenu />
+      <Stack>
+        <TopMenu />
+        <BasicLayout />
+      </Stack>
       <Stack
         spacing={4}
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          color: 'white',
-          height: '100vh',
-        }}
+        flexDirection={"column"}
+        alignItems="center"
+        justifyContent="center"
+        marginTop={{ xs: 20, sm: 20, md: 30, lg: 30 }}
+        width="100%"
       >
         <Typography
+          textAlign="center"
           variant="h2"
           component="h1"
           p={2}
           sx={{
-            textAlign: 'center',
             fontFamily: 'Lato, sans-serif',
             backgroundColor: 'primary.main',
             background:
@@ -31,25 +33,53 @@ const NotFound: React.FC = () => {
             fontWeight: 'bold',
           }}
         >
-          Nothing here.
+          Page Not Found.
         </Typography>
         <Typography
-          variant="h6"
+          variant="h5"
           color="white"
-          component={Link}
-          to="/"
-          p={2}
+          textAlign="center"
           sx={{
-            textAlign: 'center',
-            fontWeight: 'bold',
+            fontWeight: 500,
             fontFamily: 'Lato, sans-serif',
-            textDecoration: 'none',
-            border: 'solid white 2px',
-            borderRadius: '25px',
           }}
         >
-          Back To Home
+          The page you are looking for doesn't exist or has been moved.
         </Typography>
+        <Button
+          variant="outlined"
+          href="#/"
+          variant="contained"
+          sx={{
+            p: 1,
+            width: { xs: '250px', sm: '275px' },
+            height: 'auto',
+            color: 'white',
+            fontWeight: 'bold',
+            fontFamily: 'Lato, sans-serif',
+            borderRadius: 8,
+            backgroundColor: '#08050f',
+            border: '2px solid white',
+            transition:
+              'transform 0.2s ease-in-out, background-image 0.2s ease-in-out',
+            '&:hover': {
+              transform: 'scale(1.03)',
+              backgroundColor: 'white',
+              border: '2px solid black',
+              color: 'black',
+            },
+          }}
+        >
+          <Typography
+            sx={{
+              p: 1,
+              fontFamily: 'Lato, sans-serif',
+              fontWeight: 'bold',
+            }}
+          >
+            Back To Home
+          </Typography>
+        </Button>
       </Stack>
     </>
   );

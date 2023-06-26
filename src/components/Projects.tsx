@@ -6,7 +6,7 @@ import ProjectCard from './ProjectCard';
 const Projects: React.FC = () => {
   return (
     <Stack
-      spacing={8}
+      spacing={4}
       justifyContent="center"
       height="auto"
       alignItems="center"
@@ -31,11 +31,6 @@ const Projects: React.FC = () => {
         title="A* Pathfinding"
         link="https://github.com/123freezebrennan/A-Star-Algorithm-Visual"
         description="A Python implemented A* search algorithm."
-      />
-      <ProjectCard
-        title="CV Dashboard Camera"
-        link="https://github.com/123freezebrennan/OpenVINO-DashBoard-Edge-AI"
-        description="OpenVINO computer vision model for road traffic."
       />
     </Stack>
   );

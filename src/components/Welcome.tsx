@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import {
-  Box,
   Button,
   Stack,
   Typography,
@@ -39,7 +38,7 @@ const Welcome: React.FC = () => {
         textAlign: 'center',
         top: 0,
       }}
-      spacing={6}
+      spacing={2}
     >
       <Typography
         variant="h2"
@@ -108,7 +107,7 @@ const Welcome: React.FC = () => {
               fontWeight: 'bold',
             }}
           >
-            Skills
+            Resume
           </Typography>
         </Button>
         <Popover
@@ -136,15 +135,14 @@ const Welcome: React.FC = () => {
               justifyContent: 'center',
               alignItems: 'center',
               border: 'solid white 2px',
-              overflow: 'auto' /* Enable scrolling */,
+              overflow: 'auto',
               '&::-webkit-scrollbar': {
-                background: 'transparent' /* Hide the scrollbar */,
+                background: 'transparent',
               },
               '&::-webkit-scrollbar-thumb': {
-                background: 'transparent' /* Hide the scrollbar thumb */,
+                background: 'transparent',
               },
-              scrollbarColor:
-                'transparent transparent' /* Hide the scrollbar */,
+              scrollbarColor: 'transparent transparent',
             }}
           >
             <IconButton

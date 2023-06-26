@@ -1,10 +1,7 @@
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable import/extensions */
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import Blog from './Blog';
-
+// eslint-disable-next-line import/no-named-as-default
 import NotFound from './NotFound';
 
 const App = () => {
