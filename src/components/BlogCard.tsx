@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import { ArrowRight, CloseRounded } from '@mui/icons-material';
 import {
   Button,
@@ -250,13 +251,19 @@ const BlogCard: React.FC<BlogProps> = ({ title, date, tech, content }) => {
             {tech}
           </Typography>
           <Divider sx={{ width: '150px' }} color="white" />
-          <Typography
-            textAlign="left"
-            width="95%"
-            sx={{ fontFamily: 'Lato, sans-serif', whiteSpace: 'pre-line' }}
-          >
-            {content}
-          </Typography>
+          {content.split(/(?<=[.?!])\s/).map((line, index) => (
+            <Typography
+              key={index}
+              textAlign="left"
+              width="95%"
+              sx={{
+                fontFamily: 'Lato, sans-serif',
+              }}
+            >
+              {line.trim()} <br />
+              <br />
+            </Typography>
+          ))}
         </Stack>
       </Popover>
     </Grid>

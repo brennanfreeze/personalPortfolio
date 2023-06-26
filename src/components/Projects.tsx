@@ -11,10 +11,8 @@ const Projects: React.FC = () => {
       justifyContent="center"
       height="auto"
       alignItems="center"
-      zIndex={2}
       color="white"
       sx={{
-        marginTop: 10,
         fontFamily: 'Lato, san-serif',
       }}
     >

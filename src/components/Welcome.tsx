@@ -29,7 +29,7 @@ const Welcome: React.FC = () => {
         textAlign: 'center',
         top: 0,
       }}
-      spacing={2}
+      spacing={4}
     >
       <Typography
         variant="h2"
@@ -64,6 +64,7 @@ const Welcome: React.FC = () => {
           flexDirection: { xs: 'column', sm: 'row' },
           justifyContent: 'center',
           marginTop: { xs: 2, sm: 5 },
+          marginBottom: 4,
           gap: '2vh',
         }}
       >
