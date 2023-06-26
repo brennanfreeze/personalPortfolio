@@ -12,7 +12,7 @@ export const NotFound: React.FC = () => {
       </Stack>
       <Stack
         spacing={4}
-        flexDirection={"column"}
+        flexDirection="column"
         alignItems="center"
         justifyContent="center"
         marginTop={{ xs: 20, sm: 20, md: 30, lg: 30 }}
@@ -47,7 +47,6 @@ export const NotFound: React.FC = () => {
           The page you are looking for doesn't exist or has been moved.
         </Typography>
         <Button
-          variant="outlined"
           href="#/"
           variant="contained"
           sx={{

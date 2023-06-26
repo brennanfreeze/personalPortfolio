@@ -1,12 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import {
-  Button,
-  Stack,
-  Typography,
-  Popover,
-  Paper,
-  IconButton,
-} from '@mui/material';
+import { Button, Stack, Typography, Popover, IconButton } from '@mui/material';
 import React, { useState } from 'react';
 import { CloseRounded } from '@mui/icons-material';
 import Projects from './Projects';
@@ -16,12 +9,10 @@ import Resume from './Resume';
 const Welcome: React.FC = () => {
   const [isPopoverOpen, setPopoverOpen] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+  const [, setAnchorEl] = useState<HTMLButtonElement | null>(null);
   const handlePopoverOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
     setPopoverOpen(true);
     setAnchorEl(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log(anchorEl);
   };
 
   const handlePopoverClose = () => {
@@ -43,7 +34,6 @@ const Welcome: React.FC = () => {
       <Typography
         variant="h2"
         component="h1"
-        p={2}
         sx={{
           fontFamily: 'Lato, sans-serif',
           backgroundColor: 'primary.main',
@@ -125,44 +115,47 @@ const Welcome: React.FC = () => {
             backgroundColor: 'rgba(0, 0, 0, 0.9)',
             scrollbarColor: 'transparent transparent',
           }}
+          slotProps={{
+            paper: {
+              sx: {
+                position: 'relative',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                width: { xs: '300px', sm: '300px', md: '600px', lg: '600px' },
+                height: { xs: '450px', sm: '450px', md: '700px', lg: '700px' },
+                border: 'white solid 2px',
+                borderRadius: '25px',
+                backgroundColor: '#08050f',
+                '&::-webkit-scrollbar': {
+                  background: 'transparent',
+                  display: 'none',
+                },
+                '&::-webkit-scrollbar-thumb': {
+                  background: 'transparent',
+                },
+              },
+            },
+          }}
         >
-          <Paper
+          <IconButton
+            onClick={handlePopoverClose}
             sx={{
-              p: 1,
-              backgroundColor: '#08050f',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              border: 'solid white 2px',
-              overflow: 'auto',
-              '&::-webkit-scrollbar': {
-                background: 'transparent',
-              },
-              '&::-webkit-scrollbar-thumb': {
-                background: 'transparent',
-              },
-              scrollbarColor: 'transparent transparent',
+              position: 'absolute',
+              color: 'white',
+              right: 0,
+              top: 0,
+              zIndex: 10,
             }}
           >
-            <IconButton
-              onClick={handlePopoverClose}
+            <CloseRounded
               sx={{
-                position: 'absolute',
-                color: 'white',
-                top: 10,
-                right: 10,
+                width: '30px',
+                height: '30px',
               }}
-            >
-              <CloseRounded
-                sx={{
-                  width: { xs: '50px', sm: '50px', md: '75px', lg: '75px' },
-                  height: { xs: '50px', sm: '50px', md: '75px', lg: '75px' },
-                }}
-              />
-            </IconButton>
-            <Resume />
-          </Paper>
+            />
+          </IconButton>
+          <Resume />
         </Popover>
         <Button
           href="#/blog"

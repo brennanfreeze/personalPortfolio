@@ -6,14 +6,15 @@ import ProjectCard from './ProjectCard';
 const Projects: React.FC = () => {
   return (
     <Stack
+      position="relative"
       spacing={4}
       justifyContent="center"
       height="auto"
       alignItems="center"
       zIndex={2}
       color="white"
-      margin="auto"
       sx={{
+        marginTop: 10,
         fontFamily: 'Lato, san-serif',
       }}
     >

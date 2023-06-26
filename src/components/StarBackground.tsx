@@ -21,9 +21,9 @@ const StarBackground: React.FC = () => {
         enableZoom={false}
         enableDamping={false}
         enableRotate={false}
-        target={[4, 4, 1]}
+        target={[0, 20, 10]}
       />
-      <Stars radius={100} depth={10} count={10000} factor={0} />
+      <Stars radius={200} depth={100} count={10000} factor={1} />
     </Canvas>
   );
 };

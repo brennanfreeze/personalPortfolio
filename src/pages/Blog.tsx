@@ -13,7 +13,7 @@ const Blog: React.FC = () => {
           textAlign="center"
           variant="h2"
           component="h1"
-          marginTop={{ xs: 10, sm: 10, md: 20, lg: 20 }}
+          marginTop={{ xs: 15, sm: 15, md: 20, lg: 20 }}
           p={2}
           sx={{
             fontFamily: 'Lato, sans-serif',
@@ -39,9 +39,8 @@ const Blog: React.FC = () => {
           }}
         >
           Here, I share practical knowledge and insights on programming
-          languages, frameworks, and best practices, and explore the
-          transformative potential of software engineering in real-world
-          applications.
+          languages, frameworks, and explore the transformative potential of
+          software engineering in real-world applications.
         </Typography>
         <TextField
           autoComplete="off"

@@ -64,8 +64,8 @@ const Resume: React.FC = () => {
       >
         <Stack
           sx={{
-            width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
-            height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
+            width: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
+            height: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
             background: `url(${c})`,
             backgroundSize: 'cover',
             border: '#08050f solid 4px',
@@ -73,8 +73,8 @@ const Resume: React.FC = () => {
         />
         <Stack
           sx={{
-            width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
-            height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
+            width: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
+            height: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
             background: `url(${csharp})`,
             backgroundSize: 'cover',
             border: '#08050f solid 4px',
@@ -82,8 +82,8 @@ const Resume: React.FC = () => {
         />
         <Stack
           sx={{
-            width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
-            height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
+            width: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
+            height: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
             background: `url(${javascript})`,
             backgroundSize: 'cover',
             border: '#08050f solid 4px',
@@ -91,8 +91,8 @@ const Resume: React.FC = () => {
         />
         <Stack
           sx={{
-            width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
-            height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
+            width: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
+            height: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
             background: `url(${typescript})`,
             backgroundSize: 'cover',
             border: '#08050f solid 4px',
@@ -100,8 +100,8 @@ const Resume: React.FC = () => {
         />
         <Stack
           sx={{
-            width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
-            height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
+            width: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
+            height: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
             background: `url(${java})`,
             backgroundSize: 'cover',
             border: '#08050f solid 4px',
@@ -109,8 +109,8 @@ const Resume: React.FC = () => {
         />
         <Stack
           sx={{
-            width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
-            height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
+            width: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
+            height: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
             background: `url(${python})`,
             backgroundSize: 'cover',
             border: '#08050f solid 4px',
@@ -118,8 +118,8 @@ const Resume: React.FC = () => {
         />
         <Stack
           sx={{
-            width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
-            height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
+            width: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
+            height: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
             background: `url(${golang})`,
             backgroundSize: 'cover',
             border: '#08050f solid 4px',
@@ -147,8 +147,8 @@ const Resume: React.FC = () => {
       >
         <Stack
           sx={{
-            width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
-            height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
+            width: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
+            height: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
             background: `url(${chakra})`,
             backgroundSize: 'cover',
             border: '#08050f solid 4px',
@@ -156,8 +156,8 @@ const Resume: React.FC = () => {
         />
         <Stack
           sx={{
-            width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
-            height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
+            width: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
+            height: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
             background: `url(${mui})`,
             backgroundSize: 'cover',
             border: '#08050f solid 4px',
@@ -165,8 +165,8 @@ const Resume: React.FC = () => {
         />
         <Stack
           sx={{
-            width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
-            height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
+            width: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
+            height: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
             background: `url(${react})`,
             backgroundSize: 'cover',
             border: '#08050f solid 4px',
@@ -174,8 +174,8 @@ const Resume: React.FC = () => {
         />
         <Stack
           sx={{
-            width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
-            height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
+            width: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
+            height: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
             background: `url(${nodejs})`,
             backgroundSize: 'cover',
             border: '#08050f solid 4px',
@@ -183,8 +183,8 @@ const Resume: React.FC = () => {
         />
         <Stack
           sx={{
-            width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
-            height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
+            width: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
+            height: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
             background: `url(${django})`,
             backgroundSize: 'cover',
             border: '#08050f solid 4px',
@@ -192,8 +192,8 @@ const Resume: React.FC = () => {
         />
         <Stack
           sx={{
-            width: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
-            height: { xs: '30px', sm: '50px', md: '70px', lg: '70px' },
+            width: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
+            height: { xs: '30px', sm: '30px', md: '70px', lg: '70px' },
             background: `url(${mongodb})`,
             backgroundSize: 'cover',
             border: '#08050f solid 4px',
